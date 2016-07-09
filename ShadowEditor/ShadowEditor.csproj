@@ -7,8 +7,8 @@
     <ProjectGuid>{8F572D56-8538-4BC3-8BBA-85B4325B8C52}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Chummer</RootNamespace>
-    <AssemblyName>Chummer</AssemblyName>
+    <RootNamespace>ShadowEditor</RootNamespace>
+    <AssemblyName>ShadowEditor</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -37,7 +37,7 @@
     <ApplicationIcon>icon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>Chummer.App</StartupObject>
+    <StartupObject>ShadowEditor.App</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
