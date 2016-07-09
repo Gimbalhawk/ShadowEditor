@@ -1,0 +1,148 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+					xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+	<!-- Base Style -->
+	<Style x:Key="{x:Type Control}" TargetType="{x:Type Control}">
+		<Setter Property="Background" Value="{DynamicResource ControlBrush}"/>
+		<Setter Property="Foreground" Value="{DynamicResource TextBrush}"/>
+		<Setter Property="FontSize" Value="11"/>
+	</Style>
+	
+	<!-- Window Style -->
+	<Style x:Key="{x:Type Window}" TargetType="{x:Type Window}" BasedOn="{StaticResource {x:Type Control}}">
+		<Setter Property="Background" Value="{DynamicResource ControlBrushVeryDark}"/>
+		<Setter Property="Foreground" Value="{DynamicResource TextBrushLight}"/>
+	</Style>
+
+	<!-- TextBlock Style (Note: TextBlock doesn't inherit from Control) -->
+	<Style x:Key="{x:Type TextBlock}" TargetType="{x:Type TextBlock}">
+		<Setter Property="Foreground" Value="{DynamicResource TextBrushLight}"/>
+	</Style>
+
+	<!-- TextBox Style -->
+	<Style x:Key="{x:Type TextBox}" TargetType="{x:Type TextBox}" BasedOn="{StaticResource {x:Type Control}}">
+		<Setter Property="Background" Value="{DynamicResource ControlBrushVeryDark}"/>
+		<Setter Property="Foreground" Value="{DynamicResource TextBrushVeryLight}"/>
+		<Setter Property="FontSize" Value="9"/>
+
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type TextBox}">
+					<Border BorderThickness="{TemplateBinding Border.BorderThickness}" BorderBrush="{DynamicResource ControlBrushVeryLight}" CornerRadius="1">
+						<ScrollViewer x:Name="PART_ContentHost" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+					</Border>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+		
+		<Style.Triggers>
+			<Trigger Property="IsReadOnly" Value="True">
+				<Setter Property="Background" Value="{DynamicResource ControlBrush}"/>
+			</Trigger>
+		</Style.Triggers>
+	</Style>
+
+	<!-- Menu Style -->
+	<Style x:Key="{x:Type Menu}" TargetType="{x:Type Menu}" BasedOn="{StaticResource {x:Type Control}}">
+		<Setter Property="Background" Value="{DynamicResource ControlBrush}"/>
+		<!--<Setter Property="Foreground" Value="{DynamicResource TextBrushLight}"/>-->
+		<Setter Property="BorderThickness" Value="0"/>
+		<Setter Property="BorderBrush" Value="{DynamicResource ControlBrushDark}"/>
+
+		<Style.Resources>
+			<!-- MenuItem Style -->
+			<Style x:Key="{x:Type MenuItem}" TargetType="{x:Type MenuItem}" BasedOn="{StaticResource {x:Type Control}}">
+				<Setter Property="Background" Value="{DynamicResource ControlBrush}"/>
+				<Setter Property="Height" Value="20"/>
+
+				<Style.Triggers>
+					<Trigger Property="IsHighlighted" Value="True">
+						<Setter Property="Background" Value="{DynamicResource ControlBrushVeryLight}"/>
+					</Trigger>
+
+					<Trigger Property="IsEnabled" Value="False">
+						<!--<Setter Property="Foreground" Value="{DynamicResource ControlBrushLight}"/>-->
+						<Setter Property="Opacity" Value="0.6"/>
+					</Trigger>
+				</Style.Triggers>
+			</Style>
+
+			<!-- Separator Style -->
+			<Style x:Key="{x:Static MenuItem.SeparatorStyleKey}" TargetType="{x:Type Separator}" BasedOn="{StaticResource {x:Type Control}}">
+				<!--<Setter Property="OverridesDefaultStyle" Value="true" />-->
+				<Setter Property="Background" Value="{DynamicResource ControlBrushDark}"/>
+				<Setter Property="Foreground" Value="{DynamicResource TextBrushLight}"/>
+				<Setter Property="Height" Value="5" />
+				<Setter Property="Opacity" Value="1"/>
+
+				<Setter Property="Template">
+					<Setter.Value>
+						<ControlTemplate TargetType="{x:Type Separator}">
+							<!--<Border BorderBrush="{DynamicResource ControlBrushDark}" BorderThickness="50"/>-->
+						</ControlTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+		</Style.Resources>
+	</Style>
+
+	<!-- TabControl Style -->
+	<Style x:Key="{x:Type TabControl}" TargetType="{x:Type TabControl}" BasedOn="{StaticResource {x:Type Control}}">
+		<Setter Property="Background" Value="{DynamicResource ControlBrushDark}"/>
+		<Setter Property="Foreground" Value="{DynamicResource TextBrushLight}"/>
+
+		<Style.Resources>
+			<!-- TabItem Style -->
+			<Style x:Key="{x:Type TabItem}" TargetType="{x:Type TabItem}" BasedOn="{StaticResource {x:Type Control}}">
+				<Setter Property="Background" Value="{DynamicResource ControlBrushLight}"/>
+				<Setter Property="Foreground" Value="{DynamicResource TextBrushVeryLight}"/>
+				<Setter Property="BorderBrush" Value="{DynamicResource ControlBrushVeryLight}"/>
+
+				<Setter Property="Template">
+					<Setter.Value>
+						<ControlTemplate TargetType="{x:Type TabItem}">
+							<Border>
+								<Grid>
+									<Grid>
+										<Border x:Name="border" CornerRadius="3 3 0 0" Background="{DynamicResource ControlBrushLight}"/>
+									</Grid>
+									<ContentPresenter ContentSource="Header" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+								</Grid>
+							</Border>
+							<ControlTemplate.Triggers>
+								<Trigger Property="IsMouseOver" Value="True">
+									<Setter TargetName="border" Property="Background" Value="{DynamicResource ControlBrushVeryLight}" />
+								</Trigger>
+								<Trigger Property="IsSelected" Value="True">
+									<Setter TargetName="border" Property="Background" Value="{DynamicResource ControlBrushVeryLight}" />
+								</Trigger>
+							</ControlTemplate.Triggers>
+						</ControlTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+		</Style.Resources>
+	</Style>
+
+	<!-- Button Style-->
+	<Style x:Key="{x:Type Button}" TargetType="{x:Type Button}" BasedOn="{StaticResource {x:Type Control}}">
+		<Setter Property="Background" Value="{DynamicResource ControlBrushLight}"/>
+		<Setter Property="Foreground" Value="{DynamicResource TextBrushLight}"/>
+
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type Button}">
+					<Border Background="{TemplateBinding Background}" BorderThickness="2" BorderBrush="{DynamicResource ControlBrushVeryLight}" CornerRadius="1">
+						<ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+					</Border>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+
+		<Style.Triggers>
+			<Trigger Property="IsMouseOver" Value="True">
+				<Setter Property="Background" Value="{DynamicResource ControlBrushVeryLight}"/>
+			</Trigger>
+		</Style.Triggers>
+	</Style>
+</ResourceDictionary>

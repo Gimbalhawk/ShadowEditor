@@ -1,0 +1,18 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+					xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+					x:Name="SettingsBrushes">
+	
+	<!-- Control brushes -->
+	<SolidColorBrush x:Key="ControlBrushVeryDark" Color="#FF000000" />
+	<SolidColorBrush x:Key="ControlBrushDark" Color="#FF202020" />
+	<SolidColorBrush x:Key="ControlBrush" Color="#FF404040" />
+	<SolidColorBrush x:Key="ControlBrushLight" Color="#FF606060" />
+	<SolidColorBrush x:Key="ControlBrushVeryLight" Color="#FF808080" />
+	
+	<!-- Text brushes -->
+	<SolidColorBrush x:Key="TextBrushDark" Color="#FF909090" />
+	<SolidColorBrush x:Key="TextBrush" Color="#FFB0B0B0" />
+	<SolidColorBrush x:Key="TextBrushLight" Color="#FFD0D0D0" />
+	<SolidColorBrush x:Key="TextBrushVeryLight" Color="#FFF0F0F0" />
+		
+</ResourceDictionary>
