@@ -5,8 +5,16 @@
 			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
 			 xmlns:local="clr-namespace:ShadowEditor.Code.Controls"
 			 mc:Ignorable="d" >
+	<UserControl.Resources>
+		<BooleanToVisibilityConverter x:Key="boolToVisConverter"/>
+	</UserControl.Resources>
+	
 	<Grid>
-		<TabControl x:Name="DocumentTabControl" ItemsSource="{Binding DataContext, RelativeSource={RelativeSource AncestorType=UserControl}}" SelectionChanged="TabControlSelectionChanged">
+		<TabControl 
+			x:Name="DocumentTabControl" 
+			ItemsSource="{Binding DataContext, RelativeSource={RelativeSource AncestorType=UserControl}}" 
+			Visibility="{Binding HasItems, Converter={StaticResource boolToVisConverter}, RelativeSource={RelativeSource Self}, Mode=OneWay}"
+			SelectionChanged="TabControlSelectionChanged">
 			<TabControl.ItemTemplate>
 				<DataTemplate>
 					<TextBlock Text="{Binding DocumentName}" Padding="3 0 3 0" Margin="1"/>
