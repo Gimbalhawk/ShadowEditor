@@ -23,11 +23,19 @@
 					DataContextChanged="ValueTextBoxDataContextChanged"
 					LostFocus="ValueTextBoxLostKeyboardFocus"
 					PreviewTextInput="ValidateTextInput"
-					TextChanged="ValidateTextChanged"/>
+					TextChanged="ValidateTextChanged"
+					Padding="0 1 0 0"
+					Margin="0 0 1 0"/>
 
 				<StackPanel Name="IncrementButtons" Orientation="Vertical">
-					<Button FontFamily="Marlett" Content="5" FontSize="6" Padding="0" Height="Auto" Width="15" Command="{Binding IncrementValueCommand}"/>
-					<Button FontFamily="Marlett" Content="6" FontSize="6" Padding="0" Height="Auto" Width="15" Command="{Binding DecrementValueCommand}"/>
+					<!--<StackPanel.Resources>
+						<Style TargetType="{x:Type Button}" BasedOn="{StaticResource {x:Type Button}}">
+							<Setter Property="Background" Value="{DynamicResource ControlBrushDark}"/>
+						</Style>
+					</StackPanel.Resources>-->
+					
+					<Button FontFamily="Marlett" Content="5" FontSize="6" Padding="0" Height="Auto" Width="10" Command="{Binding IncrementValueCommand}" Margin="0 0 0 1"/>
+					<Button FontFamily="Marlett" Content="6" FontSize="6" Padding="0" Height="Auto" Width="10" Command="{Binding DecrementValueCommand}"/>
 				</StackPanel>
 			</StackPanel>
 		</Grid>
