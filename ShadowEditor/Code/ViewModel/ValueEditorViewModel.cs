@@ -32,6 +32,12 @@ namespace ShadowEditor.Code.ViewModel
 			{
 				SetPropertyValue("Value", value);
 			}
+			else
+			{
+				// Forces an update of the UI if no value change occured, reflecting the fact that we're rejecting whatever was entered. 
+				//If an actual change occurred, this is handled elsewhere. 
+				OnPropertyChanged("Value");
+			}
 		}
 
 		public RelayCommand IncrementValueCommand { get { return new RelayCommand(param => SetValue(Data.Value + 1)); } }
