@@ -67,11 +67,11 @@
 										<RowDefinition Height="Auto"/>
 										<RowDefinition Height="Auto"/>
 									</Grid.RowDefinitions>
-									
+
 									<ContentPresenter x:Name="Content" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" ContentSource="Header"/>
 
-									<Popup IsOpen="{Binding Path=IsSubmenuOpen, RelativeSource={RelativeSource TemplatedParent}}" Placement="Bottom" x:Name="SubMenuPopup">
-										<Border x:Name="SubMenuBorder" BorderBrush="{Binding Path=Foreground, RelativeSource={RelativeSource AncestorType={x:Type Menu}}}" BorderThickness="1" Padding="0 0 0 0">
+									<Popup IsOpen="{Binding Path=IsSubmenuOpen, RelativeSource={RelativeSource TemplatedParent}}" Placement="Bottom" x:Name="SubMenuPopup" PopupAnimation="Slide" AllowsTransparency="True">
+										<Border x:Name="SubMenuBorder" BorderBrush="{Binding Path=Foreground, RelativeSource={RelativeSource AncestorType={x:Type Menu}}}" BorderThickness="1" Padding="0 0 0 0" Background="{DynamicResource ControlBrushVeryDark}">
 											<Grid x:Name="SubMenu" Grid.IsSharedSizeScope="True">
 												<StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Cycle"/>
 											</Grid>
@@ -85,37 +85,28 @@
 								<Trigger Property="IsHighlighted" Value="true">
 									<Setter Property="Background" Value="{DynamicResource ControlBrushLight}" TargetName="Border"/>
 									<Setter Property="BorderBrush" Value="{DynamicResource ControlBrushVeryLight}" TargetName="Border"/>
-									<Setter Property="Foreground" Value="Green"/>
+								</Trigger>
+
+								<Trigger Property="IsEnabled" Value="False">
+									<Setter Property="Opacity" Value="0.5"/>
 								</Trigger>
 							</ControlTemplate.Triggers>
 						</ControlTemplate>
 					</Setter.Value>
 				</Setter>
-				
-				<Style.Triggers>
-					<Trigger Property="IsHighlighted" Value="True">
-						<Setter Property="Background" Value="{DynamicResource ControlBrushVeryLight}"/>
-					</Trigger>
-
-					<Trigger Property="IsEnabled" Value="False">
-						<!--<Setter Property="Foreground" Value="{DynamicResource ControlBrushLight}"/>-->
-						<Setter Property="Opacity" Value="0.6"/>
-					</Trigger>
-				</Style.Triggers>
 			</Style>
 
 			<!-- Separator Style -->
 			<Style x:Key="{x:Static MenuItem.SeparatorStyleKey}" TargetType="{x:Type Separator}" BasedOn="{StaticResource {x:Type Control}}">
-				<!--<Setter Property="OverridesDefaultStyle" Value="true" />-->
-				<Setter Property="Background" Value="{DynamicResource ControlBrushDark}"/>
-				<Setter Property="Foreground" Value="{DynamicResource TextBrushLight}"/>
 				<Setter Property="Height" Value="5" />
 				<Setter Property="Opacity" Value="1"/>
 
 				<Setter Property="Template">
 					<Setter.Value>
 						<ControlTemplate TargetType="{x:Type Separator}">
-							<!--<Border BorderBrush="{DynamicResource ControlBrushDark}" BorderThickness="50"/>-->
+							<Border BorderBrush="{TemplateBinding Background}" Padding="4 2 4 2">
+								<Rectangle Fill="{TemplateBinding Foreground}" Opacity="0.3"/>
+							</Border>
 						</ControlTemplate>
 					</Setter.Value>
 				</Setter>
