@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Root Type="ShadowEditor.Code.Data.DataContainer">
+	<Id>41bee0c8-df92-43e6-9c58-83ae9991e530</Id>
+	<Name>Metatypes</Name>
+	<Data>
+		<MetatypeCategory Type="ShadowEditor.Code.Data.MetatypeCategory">
+			<Id>b318d287-10db-4b2e-8386-83975603646f</Id>
+			<Name>Human</Name>
+			<Metavariants>
+				<Metatype Type="ShadowEditor.Code.Data.Metatype">
+					<Id>a32e16a6-095b-4ec2-aaf9-9c9e95c59a40</Id>
+					<Name>Human</Name>
+					<BaseAttributes Type="ShadowEditor.Code.Data.AttributeList">
+						<Id>11c93a10-0a81-4ee7-aeef-df29aa379b19</Id>
+						<Name>BaseAttributes</Name>
+						<Body Type="ShadowEditor.Code.Data.Attribute">
+							<Id>525364c5-8d6a-48f4-8e43-5d3b0c5ac507</Id>
+							<Name>Body</Name>
+							<Min>1</Min>
+							<Max>6</Max>
+						</Body>
+						<Agility Type="ShadowEditor.Code.Data.Attribute">
+							<Id>b96725a4-e365-43ad-b320-1fe78e3c0784</Id>
+							<Name>Agility</Name>
+							<Min>1</Min>
+							<Max>6</Max>
+						</Agility>
+						<Reaction Type="ShadowEditor.Code.Data.Attribute">
+							<Id>195632cb-2f9c-4269-a8ba-83c6301980c0</Id>
+							<Name>Reaction</Name>
+							<Min>1</Min>
+							<Max>6</Max>
+						</Reaction>
+						<Strength Type="ShadowEditor.Code.Data.Attribute">
+							<Id>c2146dc4-56ad-4325-971c-78671a793f6b</Id>
+							<Name>Strength</Name>
+							<Min>1</Min>
+							<Max>6</Max>
+						</Strength>
+						<Willpower Type="ShadowEditor.Code.Data.Attribute">
+							<Id>8d688499-66d3-4a34-9f23-da5e9bf722cc</Id>
+							<Name>Willpower</Name>
+							<Min>1</Min>
+							<Max>6</Max>
+						</Willpower>
+						<Logic Type="ShadowEditor.Code.Data.Attribute">
+							<Id>00d14b52-10fa-4f2f-8394-58cbc04fd331</Id>
+							<Name>Logic</Name>
+							<Min>1</Min>
+							<Max>6</Max>
+						</Logic>
+						<Intuition Type="ShadowEditor.Code.Data.Attribute">
+							<Id>74efb7df-970b-432c-a502-5c1e5d78613f</Id>
+							<Name>Intuition</Name>
+							<Min>1</Min>
+							<Max>6</Max>
+						</Intuition>
+						<Charisma Type="ShadowEditor.Code.Data.Attribute">
+							<Id>2d86c790-a614-4f82-9de0-793a4aadc3f7</Id>
+							<Name>Charisma</Name>
+							<Min>1</Min>
+							<Max>6</Max>
+						</Charisma>
+						<Essence Type="ShadowEditor.Code.Data.Attribute">
+							<Id>053706cf-6e84-4623-bb98-5de043360875</Id>
+							<Name>Essence</Name>
+							<Min>1</Min>
+							<Max>6</Max>
+						</Essence>
+					</BaseAttributes>
+				</Metatype>
+			</Metavariants>
+		</MetatypeCategory>
+		<MetatypeCategory Type="ShadowEditor.Code.Data.MetatypeCategory">
+			<Id>9f8dc696-4ede-45ed-a132-aea112ecfed2</Id>
+			<Name>Troll</Name>
+			<Metavariants>
+				<Metatype Type="ShadowEditor.Code.Data.Metatype">
+					<Id>75049462-f5b1-4ec8-ad64-7adc4e50ecaf</Id>
+					<Name>Troll</Name>
+					<BaseAttributes Type="ShadowEditor.Code.Data.AttributeList">
+						<Id>8f4c44e1-54d9-458a-a37d-931a099a173c</Id>
+						<Name>BaseAttributes</Name>
+						<Body Type="ShadowEditor.Code.Data.Attribute">
+							<Id>21aba530-bd6f-463a-9c8f-79d0eee3b1f4</Id>
+							<Name>Body</Name>
+							<Min>5</Min>
+							<Max>10</Max>
+						</Body>
+						<Agility Type="ShadowEditor.Code.Data.Attribute">
+							<Id>d17be5a5-a6f9-465b-a6b4-8906e2a1a59b</Id>
+							<Name>Agility</Name>
+							<Min>1</Min>
+							<Max>5</Max>
+						</Agility>
+						<Reaction Type="ShadowEditor.Code.Data.Attribute">
+							<Id>b498ae71-1cd8-4064-907b-d17db7c994d1</Id>
+							<Name>Reaction</Name>
+							<Min>1</Min>
+							<Max>6</Max>
+						</Reaction>
+						<Strength Type="ShadowEditor.Code.Data.Attribute">
+							<Id>737ffaea-d639-4c65-8f3a-2b1a1bec9f45</Id>
+							<Name>Strength</Name>
+							<Min>5</Min>
+							<Max>10</Max>
+						</Strength>
+						<Willpower Type="ShadowEditor.Code.Data.Attribute">
+							<Id>507a22b2-4150-44aa-aa3f-4efe6ddd691d</Id>
+							<Name>Willpower</Name>
+							<Min>1</Min>
+							<Max>6</Max>
+						</Willpower>
+						<Logic Type="ShadowEditor.Code.Data.Attribute">
+							<Id>6e1eda56-9ec8-469f-8d36-88c75601321a</Id>
+							<Name>Logic</Name>
+							<Min>1</Min>
+							<Max>5</Max>
+						</Logic>
+						<Intuition Type="ShadowEditor.Code.Data.Attribute">
+							<Id>184940d3-3f9d-4972-a0cf-44fb09de954c</Id>
+							<Name>Intuition</Name>
+							<Min>1</Min>
+							<Max>5</Max>
+						</Intuition>
+						<Charisma Type="ShadowEditor.Code.Data.Attribute">
+							<Id>24dfbdbf-0c34-4173-88f1-9206e2cfe113</Id>
+							<Name>Charisma</Name>
+							<Min>1</Min>
+							<Max>4</Max>
+						</Charisma>
+						<Essence Type="ShadowEditor.Code.Data.Attribute">
+							<Id>a85befca-2c7e-4dce-9798-636f5f5b7892</Id>
+							<Name>Essence</Name>
+							<Min>1</Min>
+							<Max>6</Max>
+							<Value>1</Value>
+						</Essence>
+					</BaseAttributes>
+				</Metatype>
+			</Metavariants>
+		</MetatypeCategory>
+	</Data>
+</Root>

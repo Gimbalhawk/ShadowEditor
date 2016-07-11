@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -21,6 +22,8 @@ namespace ShadowEditor.Code.Data.Serialization
 
 			try
 			{
+				Stopwatch stopwatch = Stopwatch.StartNew();
+
 				XmlDocument document = new XmlDocument();
 				document.Load(filename);
 
@@ -30,6 +33,9 @@ namespace ShadowEditor.Code.Data.Serialization
 				{
 					data = ReadDataObject(root);
 				}
+
+				stopwatch.Stop();
+				Log.Instance.WriteLine(String.Format("Loaded file {0} in {1} ms", filename, stopwatch.ElapsedMilliseconds));
 			}
 			catch (FileNotFoundException)
 			{
@@ -37,8 +43,8 @@ namespace ShadowEditor.Code.Data.Serialization
 			}
 			catch (Exception e)
 			{
-				Log.Instance.WriteString(String.Format("Exception caught trying to read file {0}!", filename));
-				Log.Instance.WriteString(e.StackTrace);
+				Log.Instance.WriteLine(String.Format("Exception caught trying to read file {0}!", filename));
+				Log.Instance.WriteLine(e.StackTrace);
 
 				MessageBox.Show(String.Format("Error trying to read file {0}, see the log for details.", filename));
 
@@ -112,7 +118,7 @@ namespace ShadowEditor.Code.Data.Serialization
 							}
 						}
 
-						Log.Instance.WriteString(String.Format("Can't find property {0} on DataObject {1}", child.Name, guid));
+						Log.Instance.WriteLine(String.Format("Can't find property {0} on DataObject {1}", child.Name, guid));
 					}
 				}
 			}

@@ -69,7 +69,7 @@ namespace ShadowEditor.Code.Data.Undo
 			}
 			catch (NullReferenceException e)
 			{
-				Log.Instance.WriteString(e.StackTrace);
+				Log.Instance.WriteLine(e.StackTrace);
 			}
 		}
 

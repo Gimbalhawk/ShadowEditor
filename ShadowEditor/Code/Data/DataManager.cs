@@ -7,6 +7,8 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using ShadowEditor.Code.Debug;
+using System.Diagnostics;
 
 namespace ShadowEditor.Code.Data
 {
@@ -16,8 +18,9 @@ namespace ShadowEditor.Code.Data
 
 		#region Members
 
-		private List<Document> m_openFiles = new List<Document>();
-		public List<Document> OpenFiles { get { return m_openFiles; } }
+		public List<Document> OpenFiles { get; private set; }
+
+		public CachedData CachedData { get; private set; }
 
 		private Document m_activeDocument;
 		public Document ActiveDocument
@@ -44,18 +47,69 @@ namespace ShadowEditor.Code.Data
 		public delegate void OpenFilesChangedHandler(EventArgs e);
 
 		#endregion
-		
-		public void InitializeData()
+
+		#region Constructor
+
+		private DataManager()
 		{
-			LoadDataFilesAsync();
+			OpenFiles = new List<Document>();
+
+			CachedData = new CachedData();
 		}
 
-		public bool LoadDataFilesAsync()
-		{
-			// TODO: Load the data files the editor will use.
-			string dataPath = ConfigurationManager.AppSettings["DataPath"];
+		#endregion
 
-			return false;
+		public void InitializeData()
+		{
+			LoadDataFiles();
+
+			DataContainer metatypes = new DataContainer() { Name = "Metatypes" };
+
+			MetatypeCategory human = new MetatypeCategory() { Name = "Human" };
+			human.Metavariants.Add(new Metatype() { Name = "Human" });
+			metatypes.Data.Add(human);
+
+			MetatypeCategory troll = new MetatypeCategory() { Name = "Troll" };
+			troll.Metavariants.Add(new Metatype() { Name = "Troll" });
+			metatypes.Data.Add(troll);
+
+			SaveFile(metatypes, Path.Combine(System.IO.Directory.GetCurrentDirectory(), "Metatypes.xml"));
+		}
+
+		public bool LoadDataFiles()
+		{
+			string dataPath = Path.Combine(System.IO.Directory.GetCurrentDirectory(), ConfigurationManager.AppSettings["DataPath"]);
+
+			try
+			{
+				Stopwatch stopwatch = Stopwatch.StartNew();
+
+				var dataFiles = Directory.GetFiles(dataPath);
+
+				// For each data file, pull out the root DataContainer and register each DataObject inside
+				CachedData.ClearCache();
+				dataFiles
+					.Select(file => FileReader.LoadFile(file))
+					.OfType<DataContainer>()                  
+					.ToList()
+					.ForEach(container => container.Data.ToList().ForEach(data => CachedData.RegisterData(data)));
+
+				stopwatch.Stop();
+				Log.Instance.WriteLine(String.Format("Read {0} data files in {1} ms", dataFiles.Count(), stopwatch.ElapsedMilliseconds));
+			}
+			catch (DirectoryNotFoundException)
+			{
+				Log.Instance.WriteLine(String.Format("Couldn't open data folder: {0}", dataPath));
+				return false;
+			}
+
+			return true;
+		}
+
+		public void LoadData(string filename)
+		{
+			DataContainer container = FileReader.LoadFile(filename) as DataContainer;
+			container?.Data.ForEach(d => CachedData.RegisterData(d));
 		}
 
 		public void LoadCharacter(string filename)
@@ -75,7 +129,7 @@ namespace ShadowEditor.Code.Data
 		public void OpenNewDocument(DataObject root)
 		{
 			ActiveDocument = new Document(root);
-			m_openFiles.Add(ActiveDocument);
+			OpenFiles.Add(ActiveDocument);
 
 			OpenFilesChanged(new EventArgs());
 		}

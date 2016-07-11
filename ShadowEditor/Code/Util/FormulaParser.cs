@@ -43,8 +43,8 @@ namespace ShadowEditor.Code.Util
 			}
 			catch(Exception e)
 			{
-				Log.Instance.WriteString(String.Format("Exception caught trying to parse formula: {0}", formula));
-				Log.Instance.WriteString(e.StackTrace);
+				Log.Instance.WriteLine(String.Format("Exception caught trying to parse formula: {0}", formula));
+				Log.Instance.WriteLine(e.StackTrace);
 
 				System.Windows.MessageBox.Show(String.Format("Error trying to calculate value from formula: {0}", formula));
 			}

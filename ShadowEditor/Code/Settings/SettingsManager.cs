@@ -46,7 +46,7 @@ namespace ShadowEditor.Code.Settings
 			}
 			catch(System.Configuration.SettingsPropertyNotFoundException)
 			{
-				Log.Instance.WriteString(String.Format("Couldn't find property named {0}", name));
+				Log.Instance.WriteLine(String.Format("Couldn't find property named {0}", name));
 			}
 		}
 	}

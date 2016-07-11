@@ -50,7 +50,7 @@ namespace ShadowEditor.Code.Data
 				var property = GetType().GetProperty(newAttribute.Name);
 				if (property == null)
 				{
-					Log.Instance.WriteString(String.Format("Trying to set attribute that doesn't exist: {0}. Is the data formatted wrong?", newAttribute.Name));
+					Log.Instance.WriteLine(String.Format("Trying to set attribute that doesn't exist: {0}. Is the data formatted wrong?", newAttribute.Name));
 					continue;
 				}
 

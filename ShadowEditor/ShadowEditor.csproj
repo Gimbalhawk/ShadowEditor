@@ -77,9 +77,11 @@
     <Compile Include="Code\Data\DataDefinitions\Character\AttributeList.cs" />
     <Compile Include="Code\Data\DataDefinitions\Character\CharacterCreationSettings.cs" />
     <Compile Include="Code\Data\DataDefinitions\Character\Metatype.cs" />
+    <Compile Include="Code\Data\DataDefinitions\DataContainer.cs" />
     <Compile Include="Code\Data\DataDefinitions\ManagedValue.cs" />
     <Compile Include="Code\Data\DataDefinitions\DataReference.cs" />
     <Compile Include="Code\Data\DataDefinitions\Character\Skill.cs" />
+    <Compile Include="Code\Data\CachedData.cs" />
     <Compile Include="Code\Debug\Log.cs" />
     <Compile Include="Code\Settings\Setting.cs" />
     <Compile Include="Code\Settings\SettingsManager.cs" />

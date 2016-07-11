@@ -20,7 +20,7 @@ namespace ShadowEditor.Code.ViewModel
 		{
 			if (document == null)
 			{
-				Log.Instance.WriteString("Creating DocumentViewModel for null document. What happened?");
+				Log.Instance.WriteLine("Creating DocumentViewModel for null document. What happened?");
 			}
 
 			m_document = document;

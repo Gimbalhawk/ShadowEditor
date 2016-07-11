@@ -38,8 +38,8 @@ namespace ShadowEditor.Code.Data.Serialization
 			}
 			catch (Exception e)
 			{
-				Log.Instance.WriteString("Exception caught trying to write file!");
-				Log.Instance.WriteString(e.StackTrace);
+				Log.Instance.WriteLine("Exception caught trying to write file!");
+				Log.Instance.WriteLine(e.StackTrace);
 				succeeded = false;
 			}
 
@@ -91,7 +91,7 @@ namespace ShadowEditor.Code.Data.Serialization
 				}
 				else
 				{
-					Log.Instance.WriteString("Attempting to write unsupported type: " + value.GetType().Name);
+					Log.Instance.WriteLine("Attempting to write unsupported type: " + value.GetType().Name);
 				}
 			}
 		}
