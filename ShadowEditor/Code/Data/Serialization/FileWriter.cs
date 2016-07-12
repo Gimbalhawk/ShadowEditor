@@ -3,6 +3,7 @@ using ShadowEditor.Code.Debug;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -60,10 +61,18 @@ namespace ShadowEditor.Code.Data.Serialization
 
 					foreach (PropertyInfo property in data.GetSerializableProperties())
 					{
+						Object propertyValue = property.GetValue(data);
+
+						// There's no point writing properties that have their default value. This should make the file less cluttered.
+						DefaultValueAttribute valueAttribute = property.GetCustomAttribute<DefaultValueAttribute>();
+						if (valueAttribute != null && valueAttribute.Value.Equals(propertyValue))
+							continue;
+
+						// TODO: remove name attribute. It breaks deserialization
 						SerializedNameAttribute nameAttribute = property.GetCustomAttribute<SerializedNameAttribute>();
 						string propertyName = nameAttribute != null ? nameAttribute.Name : property.Name;
 
-						WriteValue(property.GetValue(data), propertyName, writer);
+						WriteValue(propertyValue, propertyName, writer);
 					}
 
 					writer.WriteEndElement();
