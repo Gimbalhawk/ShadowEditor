@@ -67,12 +67,8 @@ namespace ShadowEditor.Code.Data.Serialization
 						DefaultValueAttribute valueAttribute = property.GetCustomAttribute<DefaultValueAttribute>();
 						if (valueAttribute != null && valueAttribute.Value.Equals(propertyValue))
 							continue;
-
-						// TODO: remove name attribute. It breaks deserialization
-						SerializedNameAttribute nameAttribute = property.GetCustomAttribute<SerializedNameAttribute>();
-						string propertyName = nameAttribute != null ? nameAttribute.Name : property.Name;
-
-						WriteValue(propertyValue, propertyName, writer);
+						
+						WriteValue(propertyValue, property.Name, writer);
 					}
 
 					writer.WriteEndElement();
